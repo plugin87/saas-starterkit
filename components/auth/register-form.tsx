@@ -33,40 +33,45 @@ export function RegisterForm() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Create an account</CardTitle>
-        <CardDescription>Start your free trial today</CardDescription>
+        <CardTitle>สมัครสมาชิก</CardTitle>
+        <CardDescription>สมัครสมาชิกเพื่อรับสิทธิพิเศษจากร้านหนังสือ</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" placeholder="John Doe" {...register('name')} />
+            <Label htmlFor="name">ชื่อ-นามสกุล</Label>
+            <Input id="name" placeholder="สมชาย ใจดี" {...register('name')} />
             {errors.name && <p className="text-sm text-destructive">{errors.name.message}</p>}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">อีเมล</Label>
             <Input id="email" type="email" placeholder="you@example.com" {...register('email')} />
             {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="phone">เบอร์โทรศัพท์</Label>
+            <Input id="phone" type="tel" placeholder="0812345678" {...register('phone')} />
+            {errors.phone && <p className="text-sm text-destructive">{errors.phone.message}</p>}
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="password">รหัสผ่าน</Label>
             <Input id="password" type="password" {...register('password')} />
             {errors.password && <p className="text-sm text-destructive">{errors.password.message}</p>}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="confirmPassword">Confirm Password</Label>
+            <Label htmlFor="confirmPassword">ยืนยันรหัสผ่าน</Label>
             <Input id="confirmPassword" type="password" {...register('confirmPassword')} />
             {errors.confirmPassword && <p className="text-sm text-destructive">{errors.confirmPassword.message}</p>}
           </div>
           <Button type="submit" className="w-full" disabled={isLoading}>
-            {isLoading ? 'Creating account...' : 'Create account'}
+            {isLoading ? 'กำลังสมัครสมาชิก...' : 'สมัครสมาชิก'}
           </Button>
         </form>
       </CardContent>
       <CardFooter className="justify-center">
         <p className="text-sm text-muted-foreground">
-          Already have an account?{' '}
-          <Link href="/login" className="text-primary hover:underline font-medium">Sign in</Link>
+          มีบัญชีอยู่แล้ว?{' '}
+          <Link href="/login" className="text-primary hover:underline font-medium">เข้าสู่ระบบ</Link>
         </p>
       </CardFooter>
     </Card>

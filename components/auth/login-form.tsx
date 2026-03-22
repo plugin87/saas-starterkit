@@ -30,45 +30,44 @@ export function LoginForm() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Welcome back</CardTitle>
-        <CardDescription>Sign in to your account to continue</CardDescription>
+        <CardTitle>เข้าสู่ระบบ</CardTitle>
+        <CardDescription>เข้าสู่ระบบเพื่อจัดการร้านหนังสือของคุณ</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">อีเมล</Label>
             <Input id="email" type="email" placeholder="you@example.com" {...register('email')} />
             {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
           </div>
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">รหัสผ่าน</Label>
               <Link href="/reset-password" className="text-xs text-muted-foreground hover:underline">
-                Forgot password?
+                ลืมรหัสผ่าน?
               </Link>
             </div>
             <Input id="password" type="password" {...register('password')} />
             {errors.password && <p className="text-sm text-destructive">{errors.password.message}</p>}
           </div>
           <Button type="submit" className="w-full" disabled={isLoading}>
-            {isLoading ? 'Signing in...' : 'Sign in'}
+            {isLoading ? 'กำลังเข้าสู่ระบบ...' : 'เข้าสู่ระบบ'}
           </Button>
         </form>
         <div className="relative">
           <div className="absolute inset-0 flex items-center"><span className="w-full border-t" /></div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+            <span className="bg-card px-2 text-muted-foreground">หรือเข้าสู่ระบบด้วย</span>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-2">
-          <Button variant="outline" onClick={() => loginWithOAuth('google')}>Google</Button>
-          <Button variant="outline" onClick={() => loginWithOAuth('github')}>GitHub</Button>
+        <div className="grid grid-cols-1 gap-2">
+          <Button variant="outline" onClick={() => loginWithOAuth('google')}>เข้าสู่ระบบด้วย Google</Button>
         </div>
       </CardContent>
       <CardFooter className="justify-center">
         <p className="text-sm text-muted-foreground">
-          Don&apos;t have an account?{' '}
-          <Link href="/register" className="text-primary hover:underline font-medium">Sign up</Link>
+          ยังไม่มีบัญชี?{' '}
+          <Link href="/register" className="text-primary hover:underline font-medium">สมัครสมาชิก</Link>
         </p>
       </CardFooter>
     </Card>

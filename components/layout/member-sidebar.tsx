@@ -2,30 +2,42 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, Settings, CreditCard } from 'lucide-react'
+import {
+  Home,
+  Receipt,
+  Star,
+  Tag,
+  UserCircle,
+} from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { NavItem } from '@/types'
 
 const navItems: NavItem[] = [
-  { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-  { label: 'Settings', href: '/settings', icon: Settings },
-  { label: 'Billing', href: '/billing', icon: CreditCard },
+  { label: 'หน้าหลัก', href: '/member', icon: Home },
+  { label: 'ประวัติการซื้อ', href: '/member/history', icon: Receipt },
+  { label: 'คะแนนสะสม', href: '/member/points', icon: Star },
+  { label: 'โปรโมชั่น', href: '/member/promotions', icon: Tag },
+  { label: 'โปรไฟล์', href: '/member/profile', icon: UserCircle },
 ]
 
-export function Sidebar() {
+export function MemberSidebar() {
   const pathname = usePathname()
 
   return (
     <aside className="w-64 border-r bg-muted/40 flex flex-col">
       <div className="p-6 border-b">
-        <Link href="/dashboard" className="text-xl font-bold">
-          {process.env.NEXT_PUBLIC_APP_NAME}
+        <Link href="/member" className="flex items-center gap-2">
+          <Home className="h-6 w-6 text-primary" />
+          <span className="text-xl font-bold">ร้านหนังสือ</span>
         </Link>
       </div>
       <nav className="flex-1 p-4 space-y-1">
         {navItems.map((item) => {
           const Icon = item.icon!
-          const isActive = pathname === item.href
+          const isActive =
+            item.href === '/member'
+              ? pathname === '/member'
+              : pathname.startsWith(item.href)
           return (
             <Link
               key={item.href}
