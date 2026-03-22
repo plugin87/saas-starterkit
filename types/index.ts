@@ -24,6 +24,7 @@ export interface Profile {
   totalPoints: number
   availablePoints: number
   isActive: boolean
+  note: string | null
   createdAt: string
   updatedAt: string
 }

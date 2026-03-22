@@ -40,6 +40,11 @@ export const memberSchema = z.object({
   phone: z.string().optional(),
   address: z.string().optional(),
   dateOfBirth: z.string().optional(),
+  note: z.string().optional(),
+})
+
+export const createMemberSchema = memberSchema.extend({
+  password: z.string().min(8, 'รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร'),
 })
 
 export const categorySchema = z.object({
@@ -53,4 +58,5 @@ export type RegisterInput = z.infer<typeof registerSchema>
 export type ProfileInput = z.infer<typeof profileSchema>
 export type BookInput = z.infer<typeof bookSchema>
 export type MemberInput = z.infer<typeof memberSchema>
+export type CreateMemberInput = z.infer<typeof createMemberSchema>
 export type CategoryInput = z.infer<typeof categorySchema>

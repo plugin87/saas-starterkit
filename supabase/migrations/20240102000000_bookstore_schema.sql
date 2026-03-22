@@ -20,7 +20,8 @@ ALTER TABLE public.profiles
   ADD COLUMN IF NOT EXISTS total_spent numeric(12,2) DEFAULT 0 NOT NULL,
   ADD COLUMN IF NOT EXISTS total_points integer DEFAULT 0 NOT NULL,
   ADD COLUMN IF NOT EXISTS available_points integer DEFAULT 0 NOT NULL,
-  ADD COLUMN IF NOT EXISTS is_active boolean DEFAULT true NOT NULL;
+  ADD COLUMN IF NOT EXISTS is_active boolean DEFAULT true NOT NULL,
+  ADD COLUMN IF NOT EXISTS note text;
 
 -- -----------------------------------------------
 -- 2. MEMBERSHIP_TIERS (configuration table)
