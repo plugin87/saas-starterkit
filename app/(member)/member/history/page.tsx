@@ -127,11 +127,11 @@ export default async function PurchaseHistoryPage() {
                         >
                           <div className="flex-1 min-w-0">
                             <p className="truncate font-medium">
-                              {book?.title as string ?? 'หนังสือที่ถูกลบ'}
+                              {(book?.title as string) ?? 'หนังสือที่ถูกลบ'}
                             </p>
-                            {book?.author && (
+                            {!!book?.author && (
                               <p className="text-xs text-muted-foreground truncate">
-                                {book.author as string}
+                                {String(book.author)}
                               </p>
                             )}
                           </div>

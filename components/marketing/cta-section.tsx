@@ -12,9 +12,9 @@ export function CTASection() {
         <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto text-lg">
           สมัครสมาชิกฟรี ไม่มีค่าใช้จ่าย
         </p>
-        <Button size="lg" variant="secondary" asChild>
-          <Link href="/register">สมัครสมาชิกเลย</Link>
-        </Button>
+        <Link href="/register">
+          <Button size="lg" variant="secondary">สมัครสมาชิกเลย</Button>
+        </Link>
       </div>
     </section>
   )

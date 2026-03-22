@@ -17,12 +17,12 @@ export function HeroSection() {
           สมัครสมาชิกวันนี้ สะสมแต้ม รับส่วนลด และค้นพบหนังสือที่คุณจะชอบ
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button size="lg" asChild>
-            <Link href="/register">สมัครสมาชิก</Link>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-            <Link href="/login">เข้าสู่ระบบ</Link>
-          </Button>
+          <Link href="/register">
+            <Button size="lg">สมัครสมาชิก</Button>
+          </Link>
+          <Link href="/login">
+            <Button size="lg" variant="outline">เข้าสู่ระบบ</Button>
+          </Link>
         </div>
       </div>
       {/* Decorative background gradient */}

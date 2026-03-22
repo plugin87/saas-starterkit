@@ -259,7 +259,7 @@ export async function getMemberRecommendations(memberId: string, limit = 10) {
 
   if (!memberItems || memberItems.length === 0) return []
 
-  const ownedBookIds = [...new Set(memberItems.map(i => i.book_id))]
+  const ownedBookIds = Array.from(new Set(memberItems.map(i => i.book_id)))
 
   // Get co-purchased books
   const { data: pairs } = await supabase

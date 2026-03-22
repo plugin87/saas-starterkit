@@ -8,8 +8,8 @@ interface SaleItem {
   points_earned: number
   payment_method: string
   created_at: string
-  member: { name: string; member_code: string } | null
-  staff: { name: string } | null
+  member: { name: string; member_code: string } | { name: string; member_code: string }[] | null
+  staff: { name: string } | { name: string }[] | null
 }
 
 interface RecentSalesProps {
@@ -60,7 +60,7 @@ export function RecentSales({ data }: RecentSalesProps) {
               >
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium">
-                    {sale.member?.name ?? 'ลูกค้าทั่วไป'}
+                    {(Array.isArray(sale.member) ? sale.member[0]?.name : sale.member?.name) ?? 'ลูกค้าทั่วไป'}
                   </p>
                   <div className="flex items-center gap-2">
                     <Badge variant="secondary" className="text-xs">

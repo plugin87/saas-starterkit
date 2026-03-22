@@ -11,12 +11,12 @@ export function Navbar() {
           <span className="text-xl font-bold">ร้านหนังสือ</span>
         </Link>
         <div className="flex items-center gap-2">
-          <Button variant="ghost" asChild>
-            <Link href="/login">เข้าสู่ระบบ</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/register">สมัครสมาชิก</Link>
-          </Button>
+          <Link href="/login">
+            <Button variant="ghost">เข้าสู่ระบบ</Button>
+          </Link>
+          <Link href="/register">
+            <Button>สมัครสมาชิก</Button>
+          </Link>
         </div>
       </div>
     </header>

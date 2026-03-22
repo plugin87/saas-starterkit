@@ -55,7 +55,7 @@ export default async function MemberPromotionsPage() {
   ])
 
   const promotions = promotionsResult.data ?? []
-  const recommendations = recommendationsResult.data ?? []
+  const recommendations = recommendationsResult ?? []
 
   return (
     <div className="space-y-8">
@@ -86,9 +86,9 @@ export default async function MemberPromotionsPage() {
                         <CardTitle className="text-base">
                           {promo.name as string}
                         </CardTitle>
-                        {promo.description && (
+                        {!!promo.description && (
                           <CardDescription>
-                            {promo.description as string}
+                            {String(promo.description)}
                           </CardDescription>
                         )}
                       </div>
@@ -146,9 +146,9 @@ export default async function MemberPromotionsPage() {
                   <p className="text-sm font-medium leading-tight line-clamp-2">
                     {book.title as string}
                   </p>
-                  {book.author && (
+                  {!!book.author && (
                     <p className="text-xs text-muted-foreground line-clamp-1">
-                      {book.author as string}
+                      {String(book.author)}
                     </p>
                   )}
                   <p className="text-sm font-semibold text-primary">

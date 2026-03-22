@@ -24,8 +24,8 @@ export function RegisterForm() {
     if (result?.error) {
       toast.error(result.error)
       setIsLoading(false)
-    } else if (result?.success) {
-      toast.success(result.success)
+    } else if (!result?.error) {
+      toast.success('สมัครสมาชิกสำเร็จ')
       setIsLoading(false)
     }
   }
