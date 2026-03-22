@@ -1,18 +1,26 @@
 import { create } from 'zustand'
-import type { Profile, Subscription } from '@/types'
+import type { Profile, Role, MembershipTier } from '@/types'
 
 interface UserState {
   profile: Profile | null
-  subscription: Subscription | null
+  role: Role | null
+  membershipTier: MembershipTier | null
+  availablePoints: number
   setProfile: (profile: Profile | null) => void
-  setSubscription: (subscription: Subscription | null) => void
+  setRole: (role: Role | null) => void
+  setMembershipTier: (membershipTier: MembershipTier | null) => void
+  setAvailablePoints: (availablePoints: number) => void
   clear: () => void
 }
 
 export const useUserStore = create<UserState>((set) => ({
   profile: null,
-  subscription: null,
+  role: null,
+  membershipTier: null,
+  availablePoints: 0,
   setProfile: (profile) => set({ profile }),
-  setSubscription: (subscription) => set({ subscription }),
-  clear: () => set({ profile: null, subscription: null }),
+  setRole: (role) => set({ role }),
+  setMembershipTier: (membershipTier) => set({ membershipTier }),
+  setAvailablePoints: (availablePoints) => set({ availablePoints }),
+  clear: () => set({ profile: null, role: null, membershipTier: null, availablePoints: 0 }),
 }))

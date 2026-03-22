@@ -1,0 +1,198 @@
+export const th = {
+  // Common
+  app_name: 'ร้านหนังสือ',
+  save: 'บันทึก',
+  cancel: 'ยกเลิก',
+  search: 'ค้นหา',
+  add: 'เพิ่ม',
+  edit: 'แก้ไข',
+  delete: 'ลบ',
+  confirm: 'ยืนยัน',
+  loading: 'กำลังโหลด...',
+  no_data: 'ไม่พบข้อมูล',
+  back: 'กลับ',
+  actions: 'การดำเนินการ',
+  status: 'สถานะ',
+  active: 'ใช้งาน',
+  inactive: 'ไม่ใช้งาน',
+  all: 'ทั้งหมด',
+  baht: 'บาท',
+  items: 'รายการ',
+
+  // Auth
+  login: 'เข้าสู่ระบบ',
+  register: 'สมัครสมาชิก',
+  logout: 'ออกจากระบบ',
+  email: 'อีเมล',
+  password: 'รหัสผ่าน',
+  confirm_password: 'ยืนยันรหัสผ่าน',
+  forgot_password: 'ลืมรหัสผ่าน?',
+  reset_password: 'รีเซ็ตรหัสผ่าน',
+  name: 'ชื่อ-นามสกุล',
+  phone: 'เบอร์โทรศัพท์',
+  no_account: 'ยังไม่มีบัญชี?',
+  has_account: 'มีบัญชีอยู่แล้ว?',
+  login_with_google: 'เข้าสู่ระบบด้วย Google',
+
+  // Navigation
+  nav: {
+    dashboard: 'แดชบอร์ด',
+    members: 'สมาชิก',
+    books: 'คลังหนังสือ',
+    categories: 'หมวดหมู่',
+    sales: 'บันทึกการขาย',
+    sales_history: 'ประวัติการขาย',
+    promotions: 'โปรโมชั่น',
+    points: 'คะแนนสะสม',
+    settings: 'ตั้งค่า',
+    profile: 'โปรไฟล์',
+    purchase_history: 'ประวัติการซื้อ',
+    my_promotions: 'โปรโมชั่นสำหรับคุณ',
+  },
+
+  // Members
+  member: {
+    title: 'สมาชิก',
+    code: 'รหัสสมาชิก',
+    name: 'ชื่อ-นามสกุล',
+    phone: 'เบอร์โทร',
+    tier: 'ระดับสมาชิก',
+    points: 'คะแนนสะสม',
+    available_points: 'คะแนนที่ใช้ได้',
+    total_spent: 'ยอดซื้อสะสม',
+    total_points: 'คะแนนทั้งหมด',
+    date_of_birth: 'วันเกิด',
+    address: 'ที่อยู่',
+    add_member: 'เพิ่มสมาชิกใหม่',
+    edit_member: 'แก้ไขข้อมูลสมาชิก',
+    member_detail: 'รายละเอียดสมาชิก',
+    search_placeholder: 'ค้นหาสมาชิก (ชื่อ, เบอร์โทร, รหัส)',
+    no_members: 'ยังไม่มีสมาชิก',
+  },
+
+  // Tiers
+  tier: {
+    silver: 'ซิลเวอร์',
+    gold: 'โกลด์',
+    platinum: 'แพลทินัม',
+    next_tier: 'อีก {amount} บาท เลื่อนเป็น {tier}',
+    max_tier: 'ระดับสูงสุดแล้ว',
+  },
+
+  // Books
+  book: {
+    title: 'ชื่อหนังสือ',
+    author: 'ผู้แต่ง',
+    publisher: 'สำนักพิมพ์',
+    isbn: 'ISBN',
+    price: 'ราคา',
+    cost_price: 'ราคาทุน',
+    stock: 'คงเหลือ',
+    category: 'หมวดหมู่',
+    description: 'รายละเอียด',
+    cover_image: 'ภาพปก',
+    tags: 'แท็ก',
+    published_date: 'วันที่ตีพิมพ์',
+    low_stock: 'สต็อกต่ำ',
+    out_of_stock: 'หมดสต็อก',
+    add_book: 'เพิ่มหนังสือใหม่',
+    edit_book: 'แก้ไขหนังสือ',
+    search_placeholder: 'ค้นหาหนังสือ (ชื่อ, ผู้แต่ง, ISBN)',
+    no_books: 'ยังไม่มีหนังสือในคลัง',
+    low_stock_threshold: 'แจ้งเตือนเมื่อเหลือ',
+    stock_quantity: 'จำนวนในสต็อก',
+  },
+
+  // Sales
+  sale: {
+    title: 'บันทึกการขาย',
+    record: 'บันทึกรายการ',
+    subtotal: 'ยอดรวม',
+    discount: 'ส่วนลด',
+    tier_discount: 'ส่วนลดสมาชิก',
+    total: 'ยอดสุทธิ',
+    points_earned: 'คะแนนที่ได้รับ',
+    points_redeemed: 'คะแนนที่ใช้',
+    points_discount: 'ส่วนลดจากคะแนน',
+    payment_method: 'วิธีชำระเงิน',
+    cash: 'เงินสด',
+    card: 'บัตรเครดิต',
+    transfer: 'โอนเงิน',
+    qr: 'QR Code',
+    note: 'หมายเหตุ',
+    search_book: 'ค้นหาหนังสือเพื่อเพิ่ม',
+    search_member: 'ค้นหาสมาชิก',
+    walk_in: 'ลูกค้าทั่วไป (ไม่ใช่สมาชิก)',
+    confirm_sale: 'ยืนยันการขาย',
+    sale_success: 'บันทึกการขายสำเร็จ',
+    empty_cart: 'ยังไม่มีรายการ',
+    quantity: 'จำนวน',
+    unit_price: 'ราคาต่อเล่ม',
+    history: 'ประวัติการขาย',
+  },
+
+  // Dashboard
+  dashboard: {
+    title: 'แดชบอร์ด',
+    total_members: 'สมาชิกทั้งหมด',
+    revenue_today: 'รายได้วันนี้',
+    revenue_month: 'รายได้เดือนนี้',
+    books_sold_today: 'หนังสือขายวันนี้',
+    low_stock_count: 'หนังสือใกล้หมด',
+    recent_sales: 'การขายล่าสุด',
+    popular_books: 'หนังสือขายดี',
+    revenue_chart: 'กราฟรายได้',
+  },
+
+  // Points
+  points: {
+    title: 'คะแนนสะสม',
+    earn: 'ได้รับ',
+    redeem: 'แลก',
+    adjust: 'ปรับ',
+    expire: 'หมดอายุ',
+    balance: 'คะแนนคงเหลือ',
+    history: 'ประวัติคะแนน',
+    redeem_rate: '100 คะแนน = 5 บาท',
+    manual_adjust: 'ปรับคะแนนด้วยมือ',
+  },
+
+  // Promotions
+  promotion: {
+    title: 'โปรโมชั่น',
+    add: 'สร้างโปรโมชั่น',
+    edit: 'แก้ไขโปรโมชั่น',
+    type: 'ประเภท',
+    starts_at: 'เริ่มวันที่',
+    ends_at: 'สิ้นสุดวันที่',
+    min_tier: 'ระดับขั้นต่ำ',
+    max_uses: 'จำนวนครั้งสูงสุด',
+    used_count: 'ใช้ไปแล้ว',
+    types: {
+      percent_discount: 'ลดเปอร์เซ็นต์',
+      fixed_discount: 'ลดราคาคงที่',
+      buy_x_get_y: 'ซื้อ X แถม Y',
+      spend_threshold: 'ซื้อครบ X ได้ Y',
+      bundle: 'ชุดหนังสือ',
+      points_multiplier: 'คูณคะแนน',
+    },
+    no_promotions: 'ยังไม่มีโปรโมชั่น',
+  },
+
+  // Cross-sell
+  cross_sell: {
+    also_bought: 'คนที่ซื้อเล่มนี้ มักซื้อเล่มนี้ด้วย',
+    recommended: 'แนะนำสำหรับคุณ',
+  },
+
+  // Member Portal
+  portal: {
+    welcome: 'สวัสดี, {name}',
+    your_tier: 'ระดับของคุณ',
+    your_points: 'คะแนนสะสมของคุณ',
+    recent_purchases: 'การซื้อล่าสุด',
+    tier_progress: 'ความคืบหน้าระดับสมาชิก',
+  },
+} as const
+
+export type ThStrings = typeof th
