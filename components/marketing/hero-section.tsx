@@ -1,20 +1,32 @@
 import Link from 'next/link'
+import { BookOpen } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function HeroSection() {
   return (
-    <section className="py-24 md:py-32 container text-center">
-      <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-        Build your SaaS{' '}
-        <span className="text-primary">faster than ever</span>
-      </h1>
-      <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-        Everything you need to launch a production-ready SaaS. Auth, billing, and a beautiful dashboard — all included.
-      </p>
-      <div className="flex gap-4 justify-center">
-        <Button size="lg" asChild><Link href="/register">Get Started Free</Link></Button>
-        <Button size="lg" variant="outline" asChild><Link href="/pricing">View Pricing</Link></Button>
+    <section className="relative overflow-hidden py-28 md:py-36">
+      <div className="container relative z-10 text-center">
+        <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
+          <BookOpen className="h-8 w-8 text-primary" />
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
+          ร้านหนังสือที่ใส่ใจ
+          <span className="text-primary">ทุกการอ่าน</span>
+        </h1>
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
+          สมัครสมาชิกวันนี้ สะสมแต้ม รับส่วนลด และค้นพบหนังสือที่คุณจะชอบ
+        </p>
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <Button size="lg" asChild>
+            <Link href="/register">สมัครสมาชิก</Link>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <Link href="/login">เข้าสู่ระบบ</Link>
+          </Button>
+        </div>
       </div>
+      {/* Decorative background gradient */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
     </section>
   )
 }

@@ -1,53 +1,64 @@
-# SaaS Starter Kit
+# ร้านหนังสือ — ระบบจัดการสมาชิกร้านหนังสือ
 
-A production-ready SaaS starter built with Next.js 14, Supabase, Stripe, and shadcn/ui. Ships with authentication, subscriptions, billing, and a dashboard — everything you need to launch a SaaS product.
+ระบบจัดการสมาชิกร้านหนังสือ สร้างด้วย Next.js 14, Supabase และ shadcn/ui รองรับการสะสมแต้ม เลื่อนระดับสมาชิก โปรโมชั่น และบันทึกการขาย ครบจบในระบบเดียว
 
 ## Tech Stack
 
 - **Framework:** Next.js 14 (App Router)
 - **Language:** TypeScript
 - **Database & Auth:** Supabase (PostgreSQL + Auth)
-- **Payments:** Stripe (subscriptions, webhooks)
 - **Styling:** Tailwind CSS + shadcn/ui
 - **State:** Zustand + TanStack Query
 - **Forms:** React Hook Form + Zod
 - **Charts:** Recharts
 - **Icons:** Lucide React
 
-## Project Structure
+## ฟีเจอร์หลัก
+
+- **ระบบสมาชิก** — สมัครสมาชิก, เข้าสู่ระบบ, จัดการโปรไฟล์
+- **สะสมแต้ม** — ซื้อหนังสือ 1 บาท = 1 แต้ม, แลกส่วนลดได้
+- **เลื่อนระดับอัตโนมัติ** — Silver, Gold, Platinum ตามยอดซื้อสะสม
+- **คลังหนังสือ** — จัดการหนังสือ, หมวดหมู่, สต็อก
+- **บันทึกการขาย** — บันทึกรายการขาย, ประวัติการขาย
+- **โปรโมชั่น** — ลดเปอร์เซ็นต์, ลดราคาคงที่, ซื้อ X แถม Y, คูณคะแนน
+- **แดชบอร์ดแอดมิน** — สถิติรายได้, หนังสือขายดี, สมาชิกใหม่
+- **พอร์ทัลสมาชิก** — ดูคะแนน, ประวัติการซื้อ, โปรโมชั่นสำหรับคุณ
+
+## โครงสร้างโปรเจกต์
 
 ```
 app/
-├── (auth)/           # Login, register pages
-├── (dashboard)/      # Protected: dashboard, settings, billing
-├── (marketing)/      # Public: landing page, pricing
-└── api/              # Auth callback, Stripe webhooks
+├── (auth)/              # หน้าเข้าสู่ระบบ, สมัครสมาชิก
+├── (admin)/admin/       # ระบบแอดมิน (แดชบอร์ด, สมาชิก, หนังสือ, การขาย, โปรโมชั่น, คะแนน)
+├── (member)/member/     # พอร์ทัลสมาชิก (แดชบอร์ด, ประวัติ, คะแนน, โปรไฟล์, โปรโมชั่น)
+├── (marketing)/         # หน้าแรก (Landing page)
+└── api/                 # Auth callback, Webhooks
 
 components/
-├── auth/             # Login & register forms
-├── dashboard/        # Stats, billing, profile, activity
-├── layout/           # Navbar, sidebar, header, footer
-├── marketing/        # Hero, features, pricing, CTA
-├── shared/           # Providers, loading spinner
-└── ui/               # shadcn/ui primitives
+├── admin/               # คอมโพเนนต์ฝั่งแอดมิน
+├── auth/                # ฟอร์มเข้าสู่ระบบ & สมัครสมาชิก
+├── layout/              # Navbar, Sidebar, Header, Footer
+├── marketing/           # Hero, Features, CTA
+├── member/              # คอมโพเนนต์ฝั่งสมาชิก
+├── shared/              # Providers, Loading spinner
+└── ui/                  # shadcn/ui primitives
 
-actions/              # Server Actions (auth, billing)
-hooks/                # Custom hooks (useUser, useSubscription)
-stores/               # Zustand stores
-lib/                  # Utilities, validations, Stripe config
-utils/supabase/       # Supabase client/server/middleware helpers
-supabase/migrations/  # Database schema & RLS policies
+actions/                 # Server Actions (auth, members, books, sales, points, promotions)
+hooks/                   # Custom hooks
+stores/                  # Zustand stores
+lib/                     # Utilities, validations, Thai strings (th.ts)
+utils/supabase/          # Supabase client/server/middleware helpers
+supabase/migrations/     # Database schema & RLS policies
 ```
 
-## Getting Started
+## เริ่มต้นใช้งาน
 
-### Prerequisites
+### สิ่งที่ต้องมี
 
 - Node.js 18+
-- A [Supabase](https://supabase.com) project
-- A [Stripe](https://stripe.com) account
+- บัญชี [Supabase](https://supabase.com)
 
-### 1. Clone & install
+### 1. Clone & ติดตั้ง
 
 ```bash
 git clone https://github.com/plugin87/saas-starterkit.git
@@ -55,74 +66,57 @@ cd saas-starterkit
 npm install
 ```
 
-### 2. Set up environment variables
+### 2. ตั้งค่า Environment Variables
 
 ```bash
 cp .env.example .env.local
 ```
 
-Fill in your keys in `.env.local`:
+กรอกค่าต่อไปนี้ใน `.env.local`:
 
-| Variable | Source |
+| ตัวแปร | แหล่งที่มา |
 |---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase → Settings → API |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase → Settings → API |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Settings → API |
-| `STRIPE_SECRET_KEY` | Stripe → Developers → API keys |
-| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe → Developers → API keys |
-| `STRIPE_WEBHOOK_SECRET` | Stripe → Developers → Webhooks |
-| `NEXTAUTH_SECRET` | Run `openssl rand -base64 32` |
+| `NEXTAUTH_SECRET` | รัน `openssl rand -base64 32` |
 
-### 3. Set up the database
+### 3. ตั้งค่าฐานข้อมูล
 
-Run the initial migration in your Supabase SQL Editor, or use the Supabase CLI:
+รัน migration ผ่าน Supabase SQL Editor หรือ Supabase CLI:
 
 ```bash
 supabase db push
 ```
 
-This creates `profiles` and `subscriptions` tables with Row Level Security enabled, plus auto-triggers for profile creation on signup and `updated_at` timestamps.
+จะสร้างตาราง members, books, categories, sales, points, promotions พร้อม Row Level Security
 
-### 4. Set up Stripe
-
-1. Create products and prices in the Stripe Dashboard
-2. Add the price IDs to `.env.local` (`STRIPE_PRICE_PRO_MONTHLY`, etc.)
-3. Set up a webhook endpoint pointing to `/api/webhooks/stripe`
-
-### 5. Run the dev server
+### 4. รันเซิร์ฟเวอร์
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+เปิด [http://localhost:3000](http://localhost:3000)
 
 ## Scripts
 
-| Command | Description |
+| คำสั่ง | รายละเอียด |
 |---|---|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run start` | Start production server |
-| `npm run lint` | Run ESLint |
-| `npm run typecheck` | Run TypeScript type checking |
-| `npm run format` | Format code with Prettier |
+| `npm run dev` | รันเซิร์ฟเวอร์สำหรับพัฒนา |
+| `npm run build` | Build สำหรับ production |
+| `npm run start` | รัน production server |
+| `npm run lint` | ตรวจสอบโค้ดด้วย ESLint |
+| `npm run typecheck` | ตรวจสอบ TypeScript types |
+| `npm run format` | จัดรูปแบบโค้ดด้วย Prettier |
 
-## Database Schema
+## ระดับสมาชิก
 
-**profiles** — extends Supabase `auth.users` with name, bio, website, and avatar.
-
-**subscriptions** — tracks Stripe customer/subscription IDs, plan tier (FREE/PRO/TEAM), and billing period.
-
-Both tables have RLS enabled. Users can only read/update their own data.
-
-## Subscription Tiers
-
-| Tier | Description |
+| ระดับ | สิทธิพิเศษ |
 |---|---|
-| Free | Default on signup |
-| Pro | Monthly or yearly, via Stripe |
-| Team | Monthly, via Stripe |
+| Silver | ระดับเริ่มต้นเมื่อสมัคร |
+| Gold | ส่วนลดเพิ่ม, โปรโมชั่นพิเศษ |
+| Platinum | สิทธิพิเศษสูงสุด, ส่วนลดมากที่สุด |
 
 ## License
 
