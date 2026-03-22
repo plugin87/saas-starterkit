@@ -1,5 +1,6 @@
 import { getMember, getMemberStats } from '@/actions/members'
 import { MemberForm } from '@/components/admin/members/member-form'
+import { MemberPointsHistory } from '@/components/admin/members/member-points-history'
 import { TierBadge } from '@/components/shared/tier-badge'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -89,6 +90,16 @@ export default async function MemberDetailPage({
               </div>
             </div>
           )}
+        </CardContent>
+      </Card>
+
+      {/* ประวัติคะแนน */}
+      <Card>
+        <CardHeader>
+          <CardTitle>ประวัติคะแนน</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <MemberPointsHistory memberId={id} />
         </CardContent>
       </Card>
 
